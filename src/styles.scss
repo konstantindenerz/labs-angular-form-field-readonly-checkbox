@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+mat-form-field:has([readonly]) {
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 0.35rem;
+    height: 3.5rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    background: repeating-linear-gradient(45deg, var(--mdc-filled-text-field-focus-active-indicator-color, var(--mat-app-primary)),transparent .12rem, transparent .25rem);
+    opacity: .38  ;
+    filter: saturate(0);
+  }
+}
+
+mat-form-field:has([readonly]:focus){
+  &:before {
+    filter: saturate(1);
+    opacity: .8;
+  }
+}
+
+mat-form-field:has(mat-checkbox) {
+  --mat-form-field-container-vertical-padding: .5rem;
+
+  mat-checkbox {
+    margin-left: -.75rem;
+  }
+}
+
+
+mat-checkbox {
+  mat-label {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 9rem;
+  }
+}
